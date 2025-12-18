@@ -95,3 +95,4 @@ jobs:
             badip_list.csv
             data/badips.db
             data/
+
