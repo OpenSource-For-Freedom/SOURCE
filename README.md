@@ -1,7 +1,7 @@
 
 <div align="center">
 
-<img alt="SOURCE" src="https://raw.githubusercontent.com/OpenSource-For-Freedom/source/refs/heads/Primary/assets/source.png" width="400" style="border: 3px solid black;" />
+<img alt="SOURCE" src="https://raw.githubusercontent.com/OpenSource-For-Freedom/source/refs/heads/Primary/assets/source.png" width="920" style="border: 3px solid black;" />
 
 <img alt="GitHub" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/github.svg" width="64" height="64" />
 
@@ -46,10 +46,11 @@
 ## Detailed Views
 
 <div align="center">
-    <a href="assets/matrix.mp4">
-        <img src="data/charts/matrix_preview.png" alt="Matrix visualization of malicious IP activity" width="920" />
-    </a>
-    <p><em>Matrix visualization of malicious IP activity — click the image to download or play the video.</em></p>
+<video width="920" controls>
+  <source src="assets/matrix.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<p><em>Matrix visualization of malicious IP activity</em></p>
 </div>
 
 
@@ -61,5 +62,4 @@
 
 
 ---
-
-**Data Source**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) | **Last Generated**: 2025-12-17 20:11:36 UTC
+**Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | [Google Transparency Report](https://transparencyreport.google.com/) | **Last Generated**: 2025-12-17 20:11:36 UTC
