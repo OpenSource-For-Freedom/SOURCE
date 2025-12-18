@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Update README `## Database Statistics` block from data/stats.json."""
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 
 
 def load_stats(path="data/stats.json"):
+    """Load statistics JSON from `path` and return parsed dict or None."""
     p = Path(path)
     if not p.exists():
         return None
@@ -14,14 +16,16 @@ def load_stats(path="data/stats.json"):
 
 
 def format_time(iso_str):
+    """Convert ISO timestamp to human-readable UTC string when possible."""
     try:
         dt = datetime.fromisoformat(iso_str)
         return dt.strftime("%Y-%m-%d %H:%M:%S UTC")
-    except Exception:
+    except (ValueError, TypeError):
         return iso_str
 
 
 def build_block(stats):
+    """Build the markdown stats block from a `stats` dict."""
     update_time = format_time(
         stats.get("update_time") or stats.get("update_time_iso") or ""
     )
@@ -40,6 +44,7 @@ def build_block(stats):
 
 
 def replace_block(readme_path="README.md", stats_path="data/stats.json"):
+    """Replace the `## Database Statistics` block in `README.md` using `stats_path`."""
     stats = load_stats(stats_path)
     if not stats:
         print("No stats available; skipping README update")
@@ -47,15 +52,10 @@ def replace_block(readme_path="README.md", stats_path="data/stats.json"):
 
     readme = Path(readme_path)
     content = readme.read_text(encoding="utf-8")
-
-    import re
-
-    # Replace from '## Database Statistics' until the next '---' separator (inclusive)
     pattern = re.compile(r"## Database Statistics.*?\n---", re.S)
     new_block = build_block(stats) + "---"
 
     if not pattern.search(content):
-        # Fallback: append block near top if not found
         content = new_block + "\n\n" + content
     else:
         content = pattern.sub(new_block, content, count=1)

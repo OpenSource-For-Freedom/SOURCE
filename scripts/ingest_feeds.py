@@ -11,25 +11,25 @@ from datetime import datetime
 
 try:
     import feedparser
-    import requests
 except ImportError:
     feedparser = None
-    requests = None
 
 IPV4_REGEX = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
 
 
 def is_valid_ipv4(ip: str) -> bool:
+    """Return True if `ip` is a valid IPv4 address string."""
     parts = ip.split(".")
     if len(parts) != 4:
         return False
     try:
         return all(0 <= int(p) <= 255 for p in parts)
-    except Exception:
+    except (ValueError, TypeError):
         return False
 
 
 def get_default_feeds():
+    """Return a list of default RSS/Atom feed URLs."""
     return [
         # Google security-related feeds
         "https://feeds.feedburner.com/GoogleOnlineSecurityBlog",  # Google Security Blog
@@ -45,6 +45,7 @@ def get_default_feeds():
 
 
 def load_feeds_list():
+    """Return list of feed URLs from `data/feeds.txt` or defaults."""
     cfg = Path("data/feeds.txt")
     if cfg.exists():
         lines = [l.strip() for l in cfg.read_text(encoding="utf-8").splitlines()]
@@ -53,6 +54,7 @@ def load_feeds_list():
 
 
 def extract_ips_from_text(text: str):
+    """Extract valid IPv4 addresses from text and return as a set."""
     ips = set()
     for m in IPV4_REGEX.finditer(text or ""):
         ip = m.group(0)
@@ -62,6 +64,7 @@ def extract_ips_from_text(text: str):
 
 
 def ingest():
+    """Parse configured feeds, extract IPv4s, and append to `data/feeds_ips.csv`."""
     if feedparser is None:
         print("feedparser not available; skipping RSS ingest")
         return 0
@@ -89,8 +92,8 @@ def ingest():
                         continue
                     seen_ips.add(ip)
                     rows.append([ip, 15, url, now])
-        except Exception as e:
-            print(f"Warning: failed to parse {url}: {e}")
+        except Exception:  # pylint: disable=broad-exception-caught
+            print(f"Warning: failed to parse {url}")
 
     out = Path("data/feeds_ips.csv")
     out.parent.mkdir(exist_ok=True)
@@ -110,6 +113,7 @@ def ingest():
 
 
 def main():
+    """Run ingest as a CLI entrypoint."""
     ingest()
 
 

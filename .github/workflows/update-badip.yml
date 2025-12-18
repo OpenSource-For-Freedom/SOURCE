@@ -13,8 +13,6 @@ jobs:
   update-badip:
     name: Update Bad IP Lists
     runs-on: ubuntu-latest
-    env:
-      FORCE_PUSH: ${{ secrets.FORCE_PUSH }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -63,9 +61,6 @@ jobs:
         run: |
           python scripts/generate_visualizations.py
 
-      # README is updated by `scripts/generate_visualizations.py`.
-      # Removed redundant updater to avoid conflicting writes.
-
       - name: Commit generated changes
         run: |
           git config --local user.email "action@github.com"
@@ -73,18 +68,17 @@ jobs:
           git add -A
           git commit -m "Update bad IP database and visualizations - $(date)" || echo "No changes to commit"
 
-      - name: Optional force-push to `main` (dangerous)
-        if: ${{ env.FORCE_PUSH == 'true' }}
+      - name: Force-push generated changes to main
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           REPO: ${{ github.repository }}
         run: |
-          echo "Attempting force push to main (this will fail if branch protection disallows it)"
+          echo "Force pushing generated changes to 'main' (will fail if branch protection disallows it)"
           if [ -z "${GH_TOKEN}" ]; then
             echo "GH_TOKEN not provided; cannot authenticate for push"; exit 1
           fi
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
-          git push --force origin HEAD:main || { echo "Force push failed or rejected by branch protection"; exit 1; }
+          git push --force origin HEAD:main
 
       - name: Upload bad IP list artifact
         uses: actions/upload-artifact@v4

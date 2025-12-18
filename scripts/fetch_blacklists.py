@@ -7,7 +7,6 @@ Fetch several public IP blocklists, extract IPv4 addresses, compare to
 
 import re
 import csv
-import sys
 import ipaddress
 from pathlib import Path
 from datetime import datetime
@@ -39,31 +38,38 @@ IPV4_RE = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
 
 
 def fetch_url(url: str, timeout: int = 20):
+    """Fetch text content from `url` using `requests`.
+
+    Raises RuntimeError if `requests` is not installed.
+    Returns empty string on error.
+    """
     if requests is None:
         raise RuntimeError("requests is required; run: pip install requests")
     try:
         r = requests.get(url, timeout=timeout)
         r.raise_for_status()
         return r.text
-    except Exception as e:
-        print(f"Warning: failed to fetch {url}: {e}")
+    except requests.exceptions.RequestException as exc:  # network/HTTP errors
+        print(f"Warning: failed to fetch {url}: {exc}")
         return ""
 
 
 def extract_ips(text: str):
+    """Return a set of valid IPv4 addresses found in `text`."""
     ips = set()
     for m in IPV4_RE.finditer(text or ""):
         ip = m.group(0)
         try:
-            # validate
+            # ipaddress raises ValueError for invalid addresses
             ipaddress.ip_address(ip)
             ips.add(ip)
-        except Exception:
+        except ValueError:
             continue
     return ips
 
 
 def load_badip_csv(path: Path):
+    """Load existing `badip_list.csv` (or similar) and return a set of IPs."""
     result = set()
     if not path.exists():
         return result
@@ -78,14 +84,16 @@ def load_badip_csv(path: Path):
                 try:
                     ipaddress.ip_address(ip)
                     result.add(ip)
-                except Exception:
+                except ValueError:
                     continue
-    except Exception as e:
-        print(f"Warning: failed to read {path}: {e}")
+    except OSError as exc:  # unexpected I/O error
+        print(f"Warning: failed to read {path}: {exc}")
     return result
 
 
 def main():
+    """Fetch configured blocklists, write per-source CSVs and summary files."""
+    # pylint: disable=too-many-locals
     out_dir = Path("data")
     out_dir.mkdir(exist_ok=True)
 
@@ -148,7 +156,9 @@ def main():
     # other `data/*.csv` sources into `badip_list.csv` and update the DB.
     if new_ips:
         print(
-            f"Found {len(new_ips)} new IPs (not in badip_list.csv); leaving merge to process_badips.py"
+            "Found "
+            + str(len(new_ips))
+            + " new IPs (not in badip_list.csv); leaving merge to process_badips.py"
         )
     else:
         print("No new IPs detected; nothing to merge")
