@@ -351,7 +351,7 @@ def create_steampunk_dashboard(stats):
             ax4.set_axis_off()
 
         fig.suptitle(
-            "Global Malicious IPs — Neon Dashboard",
+            "Global Malicious IPs - By Country and City",
             color="#ff1493",
             fontsize=18,
             fontweight="bold",
