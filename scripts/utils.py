@@ -6,8 +6,11 @@ Quick utility script for testing and managing the bad IP database
 import sqlite3
 import sys
 from pathlib import Path
-from datetime import datetime
 import json
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 
 
 def show_stats():
@@ -68,8 +71,8 @@ def show_stats():
     """
     )
     for severity, count in cursor.fetchall():
-        bar = "█" * (count // max(1, total_ips // 20))
-        print(f"  Level {severity}: {count:,} IPs {bar}")
+        bar_str = "█" * (count // max(1, total_ips // 20))
+        print(f"  Level {severity}: {count:,} IPs {bar_str}")
 
     conn.close()
 
@@ -141,15 +144,13 @@ def export_data(format_type="csv"):
     """
 
     if format_type.lower() == "csv":
-        try:
-            import pandas as pd
-
+        if pd is None:
+            print("ERROR: pandas not installed. Install with: pip install pandas")
+        else:
             df = pd.read_sql_query(query, conn)
             output_file = "bad_ips_export.csv"
             df.to_csv(output_file, index=False)
             print(f"Exported to {output_file}")
-        except ImportError:
-            print("ERROR: pandas not installed. Install with: pip install pandas")
 
     elif format_type.lower() == "json":
         cursor = conn.cursor()
@@ -158,7 +159,7 @@ def export_data(format_type="csv"):
         data = [dict(zip(columns, row)) for row in cursor.fetchall()]
 
         output_file = "bad_ips_export.json"
-        with open(output_file, "w") as f:
+        with open(output_file, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
         print(f"Exported to {output_file}")
 

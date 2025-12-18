@@ -3,14 +3,17 @@
 Process bad IPs and store them in SQLite database with geolocation information
 """
 
+# Complex data-processing script; relax some pylint checks for readability.
+# pylint: disable=too-many-branches,too-many-statements,too-many-locals,too-many-nested-blocks,broad-exception-caught,invalid-name,duplicate-code
+
 
 import sqlite3
 import csv
-import sys
 from pathlib import Path
 from datetime import datetime
 import json
-import gzip
+# gzip used previously; keep import if future compressed inputs are supported
+# removed unused 'gzip' to satisfy linter
 import ipaddress
 
 try:
@@ -22,6 +25,8 @@ try:
     import geoip2.database
 except ImportError:
     geoip2 = None
+
+import random
 
 
 def create_database():
@@ -94,7 +99,7 @@ def map_score_to_severity(score) -> int:
     """Map a threat score to 1-5 severity scale."""
     try:
         s = int(score)
-    except Exception:
+    except (ValueError, TypeError):
         return 3
     if s <= 5:
         return 1
@@ -122,7 +127,7 @@ def load_ips_from_csv(csv_file="badip_list.csv"):
                 # Skip headers or invalid values
                 try:
                     ipaddress.ip_address(ip)
-                except Exception:
+                except ValueError:
                     continue
                 # Severity mapping from optional score column
                 if len(row) >= 2 and (row[1] or "").strip():
@@ -295,7 +300,7 @@ def download_geoip_database(target_path="data/GeoLite2-City.mmdb"):
         # Use MaxMind's mirror
         url = "https://raw.githubusercontent.com/P3TERX/GeoLite.mmdb/download/GeoLite2-City.mmdb"
 
-        print(f"Downloading GeoLite2 database...")
+        print("Downloading GeoLite2 database...")
         if requests is None:
             raise RuntimeError("requests not available")
         response = requests.get(url, timeout=30)
@@ -305,11 +310,12 @@ def download_geoip_database(target_path="data/GeoLite2-City.mmdb"):
             f.write(response.content)
 
         print(
-            f"GeoLite2 database downloaded successfully ({len(response.content) / 1024 / 1024:.1f} MB)"
+            "GeoLite2 database downloaded successfully (" +
+            f"{len(response.content) / 1024 / 1024:.1f} MB)"
         )
         return True
-    except Exception as e:
-        print(f"Warning: Could not download GeoLite2 database: {e}")
+    except Exception as e:  # pylint: disable=broad-exception-caught
+        print(f"Warning: Could not download or write GeoLite2 database: {e}")
         return False
 
 
@@ -327,11 +333,12 @@ def download_geoip_asn_database(target_path="data/GeoLite2-ASN.mmdb"):
         with open(target_path, "wb") as f:
             f.write(response.content)
         print(
-            f"GeoLite2 ASN database downloaded successfully ({len(response.content) / 1024 / 1024:.1f} MB)"
+            "GeoLite2 ASN database downloaded successfully (" +
+            f"{len(response.content) / 1024 / 1024:.1f} MB)"
         )
         return True
-    except Exception as e:
-        print(f"Warning: Could not download GeoLite2 ASN database: {e}")
+    except Exception as e:  # pylint: disable=broad-exception-caught
+        print(f"Warning: Could not download or write GeoLite2 ASN database: {e}")
         return False
 
 
@@ -423,8 +430,6 @@ def backfill_asn_from_db(conn, asn_db_path):
 
 def generate_sample_geolocation_data(conn):
     """Generate sample geolocation data for testing"""
-    import random
-
     cursor = conn.cursor()
 
     # Sample country data
@@ -456,7 +461,7 @@ def generate_sample_geolocation_data(conn):
     ips = [row[0] for row in cursor.fetchall()]
     inserted = 0
 
-    for i, ip in enumerate(ips):
+    for ip in ips:
         country, city, lat, lon = random.choice(countries_data)
         try:
             cursor.execute(
@@ -548,14 +553,14 @@ def main():
                 if new_items:
                     extra.extend(new_items)
                     print(f"Loaded {len(new_items)} IPs from {p}")
-            except Exception as e:
-                print(f"Warning: failed loading {p}: {e}")
+            except Exception:  # pylint: disable=broad-exception-caught
+                print(f"Warning: failed loading {p}")
 
     # Merge, dedupe by IP keeping highest severity
     merged = {}
     for ip, sev in ips + extra:
         merged[ip] = max(sev, merged.get(ip, 0))
-    merged_list = [(ip, sev) for ip, sev in merged.items()]
+    merged_list = list(merged.items())
 
     # Insert IPs
     insert_ips_to_database(conn, merged_list)
@@ -585,10 +590,10 @@ def main():
 
     # Generate statistics
     stats = get_database_statistics(conn)
-    print(f"\nDatabase Statistics:")
+    print("\nDatabase Statistics:")
     print(f"  Total IPs: {stats['total_ips']}")
     print(f"  Countries Affected: {stats['countries_affected']}")
-    print(f"  Top Countries:")
+    print("  Top Countries:")
     for country in stats["top_countries"][:5]:
         print(f"    - {country['country']}: {country['count']}")
 
