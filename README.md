@@ -19,8 +19,6 @@
 
 ---
 
-# S-O-U-R-C-E
-
 ## Why you need to ban IP's 
 
 In short, curated banned‑IP list blocks known malicious hosts early, reducing noise, load, and risk with minimal effort. It complements IDS/WAFs and speeds up mitigation.
