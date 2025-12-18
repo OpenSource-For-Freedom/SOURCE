@@ -1,4 +1,3 @@
-
 <div align="center">
 
 <img alt="SOURCE" src="assets/source.png" width="600" />
@@ -6,9 +5,11 @@
 <h1>S-O-U-R-C-E</h1>
 
 <p>
-    <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub-Actions-%23FF0000?logo=github&logoColor=red" />
-    [![source](https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml/badge.svg)](https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml)
-    <img alt="Views" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FOpenSource-For-Freedom/source&title=Views&edge_flat=false&count_bg=%238A5A2B&title_bg=%2312100E&color=%23D7B377" />
+    <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub-Actions-%23000000?logo=github&logoColor=white" />
+    <a href="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml">
+        <img alt="source" src="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml/badge.svg" />
+    </a>
+    <img alt="Views" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FOpenSource-For-Freedom%2Fsource&title=Views&edge_flat=false&count_bg=%238A5A2B&title_bg=%2312100E&color=%23D7B377" />
 </p>
 
 <em>Automatically updated malicious IP database with geolocation mapping and threat analysis.</em>
