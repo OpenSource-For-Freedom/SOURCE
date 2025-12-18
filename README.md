@@ -5,10 +5,18 @@
 <h1>S-O-U-R-C-E</h1>
 
 <p align="center">
-  <a href="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml"><img alt="Workflow Status" src="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml/badge.svg" /></a>
-  <a href="https://github.com/OpenSource-For-Freedom/source/actions"><img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub-Actions-%23000000?logo=github&logoColor=white" /></a>
-  <a href="https://www.python.org/downloads/release/python-3140/"><img alt="Python 3.14" src="https://img.shields.io/badge/python-3.14-blue?logo=python&logoColor=white" /></a>
-  <a href="https://github.com/OpenSource-For-Freedom/source"><img alt="Views" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FOpenSource-For-Freedom%2Fsource&title=Views&edge_flat=false&count_bg=%238A5A2B&title_bg=%2312100E&color=%23D7B377" /></a>
+  <a href="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml">
+  <img alt="Workflow Status" src="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml/badge.svg" />
+</a>
+<a href="https://github.com/OpenSource-For-Freedom/source/actions">
+  <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub-Actions-%23000000?logo=github&logoColor=white" />
+</a>
+<a href="https://www.python.org/downloads/release/python-3140/">
+  <img alt="Python 3.14" src="https://img.shields.io/badge/python-3.14-blue?logo=python&logoColor=white" />
+</a>
+<a href="https://hits.dwyl.com/OpenSource-For-Freedom/source">
+  <img alt="Views" src="https://hits.dwyl.com/OpenSource-For-Freedom/source.svg?style=flat-square" />
+</a>
 </p>
 
 <em>Automatically updated malicious IP database with geolocation mapping and threat analysis.</em>
