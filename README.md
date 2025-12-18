@@ -4,12 +4,11 @@
 
 <h1>S-O-U-R-C-E</h1>
 
-<p>
-    <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub-Actions-%23000000?logo=github&logoColor=white" />
-    <a href="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml">
-        <img alt="source" src="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml/badge.svg" />
-    </a>
-    <img alt="Views" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FOpenSource-For-Freedom%2Fsource&title=Views&edge_flat=false&count_bg=%238A5A2B&title_bg=%2312100E&color=%23D7B377" />
+<p align="center">
+[![Workflow Status](https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml/badge.svg)](https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml)
+[![GitHub Actions](https://img.shields.io/badge/GitHub-Actions-%23000000?logo=github&logoColor=white)](https://github.com/OpenSource-For-Freedom/source/actions)
+[![Python 3.14](https://img.shields.io/badge/python-3.14-blue?logo=python&logoColor=white)](https://www.python.org/downloads/release/python-3140/)
+[![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FOpenSource-For-Freedom%2Fsource&title=Views&edge_flat=false&count_bg=%238A5A2B&title_bg=%2312100E&color=%23D7B377)](https://github.com/OpenSource-For-Freedom/source)
 </p>
 
 <em>Automatically updated malicious IP database with geolocation mapping and threat analysis.</em>
@@ -19,6 +18,43 @@
 </div>
 
 ---
+
+## Overview
+- This is an "API-LESS" repo. 
+- This uses OS Data to capture know malicious IPs and geolocate them using python. 
+- You can clone this repo, and it will function as intended to supply active data to secure your infrastucture. 
+- Source of truth: [Bad IP List](/badip_list.csv) is updated once a week, alongside the images below. 
+
+
+## Database overview
+
+### How database files feed badips.db and .mmdb
+
+- badip_list.csv (source-of-truth)
+    - Master CSV containing rows for each malicious IP (ip, first_seen, last_seen, severity, source_feed, asn, asn_org, country_code, city, latitude, longitude, notes).
+    - Updated weekly by CI; used as the single canonical input for all downstream artifacts.
+
+- Enrichment/cache files (intermediate)
+    - Temporary JSON/Parquet/CSV files produced during enrichment (geo lookups, ASN resolution, reverse DNS, threat scoring).
+    - Persisted to avoid repeated external lookups and to provide reproducible builds.
+
+- badips.db (SQLite)
+    - Built from badip_list.csv + enrichment data.
+    - Normalized tables (ips, asns, sources) and indexes on ip, last_seen, severity for fast analytic queries and joins.
+    - Primary runtime store for dashboards, CI checks, exports, and programmatic queries.
+
+- badips.mmdb (MaxMind DB)
+    - Generated from badip_list.csv + geolocation fields via an mmdb writer (e.g., libmaxminddb/mmdbwriter).
+    - Schema maps IP -> {is_malicious: true, severity, first_seen, last_seen, source, asn, asn_org, country, city, latitude, longitude}.
+    - Optimized for low-latency binary lookups by services (GeoIP2-compatible consumers, edge proxies, appliances).
+
+- Exports and consumers
+    - Blocklists (plain IP/CIDR), JSON/GeoJSON, CSV exports and the .mmdb are produced from badips.db or directly from the canonical CSV.
+    - SIEM enrichment jobs and automation read badips.db for joins; network appliances read the .mmdb for fast IP tagging.
+
+- CI pipeline
+    - CI: ingest feeds -> normalize -> enrich -> write badip_list.csv -> build badips.db -> build badips.mmdb -> generate charts/exports -> publish artifacts.
+    - Each step adds structure (DB tables, MMDB keys) tailored to consumer performance and query patterns.
 
 ## Database Statistics
 
