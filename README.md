@@ -1,7 +1,7 @@
 
 <div align="center">
 
-<img alt="SOURCE" src="https://raw.githubusercontent.com/OpenSource-For-Freedom/source/refs/heads/Primary/assets/source.png" width="400" />
+<img alt="SOURCE" src="assets/source.png" width="400" />
 
 <img alt="GitHub" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/github.svg" width="64" height="64" />
 
@@ -46,15 +46,12 @@
 ## Detailed Views
 
 <div align="center">
-<video width="920" controls>
-  <source src="assets/matrix.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-<p><em>Matrix visualization of malicious IP activity</em></p>
+
+<img alt="Countries Chart" src="data/charts/countries.png" width="920" />
+
+<img alt="World Map" src="data/charts/worldmap.png" width="920" />
+
 </div>
-
-
----
 
 ## Documentation
 
