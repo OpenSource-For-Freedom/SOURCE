@@ -44,7 +44,7 @@ def build_block(stats):
 
 
 def replace_block(readme_path="README.md", stats_path="data/stats.json"):
-    """Replace the `## Database Statistics` block in `README.md` using `stats_path`."""
+    """Replace the `## Database Statistics` block and update Last Generated timestamp in `README.md`."""
     stats = load_stats(stats_path)
     if not stats:
         print("No stats available; skipping README update")
@@ -59,6 +59,20 @@ def replace_block(readme_path="README.md", stats_path="data/stats.json"):
         content = new_block + "\n\n" + content
     else:
         content = pattern.sub(new_block, content, count=1)
+
+    # Also update the "Last Generated" timestamp at the bottom
+    update_time = format_time(stats.get("update_time") or "")
+    timestamp_pattern = re.compile(r"(\*\*Last Generated\*\*:) [^\n]+")
+    if timestamp_pattern.search(content):
+        content = timestamp_pattern.sub(rf"\1 {update_time}", content)
+    else:
+        # If pattern doesn't exist, add it at the end before closing div
+        content = re.sub(
+            r"(Data Sources.*?)\n</div>",
+            rf"\1 | **Last Generated**: {update_time}\n</div>",
+            content,
+            flags=re.S,
+        )
 
     readme.write_text(content, encoding="utf-8")
     print("README Database Statistics updated")
