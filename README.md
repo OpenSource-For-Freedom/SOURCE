@@ -1,41 +1,64 @@
+
+
 <div align="center">
+    <img src="assets/source.png" alt="Source" />
+</div>
 
-<pre style="color:green;">
-                                                    
- _____    _____    _____    _____    _____    _____ 
-|   __|  |     |  |  |  |  | __  |  |     |  |   __|
-|__   |  |  |  |  |  |  |  |    -|  |   --|  |   __|
-|_____|  |_____|  |_____|  |__|__|  |_____|  |_____|
-                                                    
-</pre>
+    <img alt="GitHub" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/github.svg" width="64" height="64" />
 
-**The single S O U R C E for malicious IP addresses with geolocation mapping and threat analysis.**
+    <h1>Bad IP Database</h1>
 
-This repository tracks known malicious IPs from threat intelligence sources, enriches them with geolocation data, and generates interactive visualizations showing the global distribution of threats.
+    <p>
+        <img alt="Python" src="https://img.shields.io/badge/Python-3.11-%233776AB?logo=python&logoColor=white" />
+        <img alt="GitHub Repo" src="https://img.shields.io/badge/GitHub-Repo-%2312100E?logo=github&logoColor=white&labelColor=%23A67C52&color=%2312100E" />
+        <img alt="Actions" src="https://github.com/OpenSource-For-Freedom/source/actions/workflows/update-badip.yml/badge.svg" />
+        <img alt="Views" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FOpenSource-For-Freedom/source&title=Views&edge_flat=false&count_bg=%238A5A2B&title_bg=%2312100E&color=%23D7B377" />
+    </p>
 
-**Data updated every Sunday at midnight UTC.**
+    <em>Automatically updated malicious IP database with geolocation mapping and threat analysis.</em>
+
+    <p><strong>Data updated every Sunday at midnight UTC.</strong></p>
+
+</div>
+
+# Overiview
+- This is an "API-Less" Database of known malicious IP's. We are capturing using the CI process with Google RSS and [Stamparm/Ipsum](https://github.com/stamparm/ipsum) as key ingestion. 
+- You can clone this repository, and it will produce the same series of graphs and constant CI updates as it does here. 
 
 ---
 
 ## Database Statistics
 
-- **Total Malicious IPs**: 192,599
+- **Total Malicious IPs**: 192,605
 - **Countries Affected**: 213
 - **Average Threat Severity**: 3.00/5
-- **Last Updated**: 2025-12-17 19:02:12 UTC
+- **Last Updated**: 2025-12-17 19:54:01 UTC
 
 ---
 
 ## Global Threat Distribution
 
-![Dashboard](data/charts/dashboard.png)
+<div align="center">
 
-![Pin Map](data/charts/map_pins.png)
+    <img alt="Pin Map" src="data/charts/map_pins.png" width="920" />
+
+    <img alt="Dashboard" src="data/charts/dashboard.png" width="920" />
+
+</div>
+
+---
+
+## Detailed Views
 
 ![Countries Chart](data/charts/countries.png)
 
 ---
 
-**Data Source**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) | **Last Generated**: 2025-12-17 19:02:12 UTC
+## Documentation
 
-</div>
+- **[QUICKSTART.md](QUICKSTART.md)** - Getting started guide
+- **[API.md](API.md)** - Database schema and query examples
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Development guidelines
+
+---
+**Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | Google RSS feeds (via CI) | **Last Generated**: 2025-12-17 19:54:01 UTC
