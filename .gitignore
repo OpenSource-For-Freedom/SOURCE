@@ -25,4 +25,4 @@ venv/
 env/
 ENV/
 .venv
-
+.env
