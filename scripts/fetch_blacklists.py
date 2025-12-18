@@ -19,10 +19,19 @@ except ImportError:
 
 
 SOURCES = [
-    ("stamparm_ipsum", "https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt"),
+    (
+        "stamparm_ipsum",
+        "https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt",
+    ),
     ("spamhaus_drop", "https://www.spamhaus.org/drop/drop.txt"),
-    ("emerging_block_ips", "https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt"),
-    ("ransomwaretracker_rw_ipbl", "https://ransomwaretracker.abuse.ch/downloads/RW_IPBL.txt"),
+    (
+        "emerging_block_ips",
+        "https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt",
+    ),
+    (
+        "ransomwaretracker_rw_ipbl",
+        "https://ransomwaretracker.abuse.ch/downloads/RW_IPBL.txt",
+    ),
     ("zeus_abusech", "https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist"),
 ]
 
@@ -138,8 +147,12 @@ def main():
     # The pipeline's `process_badips.py` will merge `data/new_ips.csv` and
     # other `data/*.csv` sources into `badip_list.csv` and update the DB.
     if new_ips:
-        print(f"Found {len(new_ips)} new IPs (not in badip_list.csv); leaving merge to process_badips.py")
+        print(
+            f"Found {len(new_ips)} new IPs (not in badip_list.csv); leaving merge to process_badips.py"
+        )
     else:
         print("No new IPs detected; nothing to merge")
+
+
 if __name__ == "__main__":
     main()

@@ -22,7 +22,9 @@ def format_time(iso_str):
 
 
 def build_block(stats):
-    update_time = format_time(stats.get("update_time") or stats.get("update_time_iso") or "")
+    update_time = format_time(
+        stats.get("update_time") or stats.get("update_time_iso") or ""
+    )
     total = stats.get("total_ips", 0)
     countries = stats.get("countries_affected") or stats.get("countries") or 0
     severity = stats.get("severity_avg") or stats.get("average_severity") or 0.0
