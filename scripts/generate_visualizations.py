@@ -620,7 +620,7 @@ def update_readme(stats):
     repo_slug = _get_repo_slug()
     actions_badge = f"https://github.com/{repo_slug}/actions/workflows/update-badip.yml/badge.svg" if repo_slug else None
     views_badge = f"https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F{repo_slug}&title=Views&edge_flat=false&count_bg=%238A5A2B&title_bg=%2312100E&color=%23D7B377" if repo_slug else None
-    python_badge = "https://img.shields.io/badge/Python-3.11-%233776AB?logo=python&logoColor=white"
+    python_badge = "https://img.shields.io/badge/Python-3.14-%233776AB?logo=python&logoColor=white"
     gh_badge = "https://img.shields.io/badge/GitHub-Repo-%2312100E?logo=github&logoColor=white&labelColor=%23A67C52&color=%2312100E"
 
     readme_content = f"""
