@@ -29,3 +29,10 @@ jobs:
       - name: Show diff if formatting needed
         if: ${{ failure() }}
         run: git --no-pager diff
+      - name: Run Black (autoformat)
+        run: |
+          pip install black
+          black .
+          git add -A
+          git commit -m "Autoformat: black" || echo "No changes"
+          git push origin HEAD:refs/heads/auto/format || echo "Push failed or blocked"
