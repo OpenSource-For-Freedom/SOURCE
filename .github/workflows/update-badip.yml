@@ -13,6 +13,8 @@ jobs:
   update-badip:
     name: Update Bad IP Lists
     runs-on: ubuntu-latest
+    env:
+      FORCE_PUSH: ${{ secrets.FORCE_PUSH }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -69,7 +71,7 @@ jobs:
           git commit -m "Update bad IP database and visualizations - $(date)" || echo "No changes to commit"
 
       - name: Optional force-push to `main` (dangerous)
-        if: ${{ secrets.FORCE_PUSH == 'true' }}
+        if: ${{ env.FORCE_PUSH == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           REPO: ${{ github.repository }}
