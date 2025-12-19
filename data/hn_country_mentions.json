@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-18T21:17:35.499314",
+  "last_updated": "2025-12-19T04:17:30.410577",
   "search_period_days": 180,
   "countries": {
     "CN": {
@@ -8,26 +8,30 @@
     },
     "RU": {
       "country": "Russia",
-      "mentions": 42
+      "mentions": 44
     },
     "IR": {
       "country": "Iran",
-      "mentions": 30
+      "mentions": 31
     },
     "IN": {
       "country": "India",
-      "mentions": 27
+      "mentions": 29
     },
     "NK": {
       "country": "North Korea",
-      "mentions": 16
+      "mentions": 17
     },
     "UA": {
       "country": "Ukraine",
-      "mentions": 9
+      "mentions": 10
     },
     "DE": {
       "country": "Germany",
+      "mentions": 7
+    },
+    "FR": {
+      "country": "France",
       "mentions": 7
     },
     "KR": {
@@ -40,23 +44,19 @@
     },
     "SG": {
       "country": "Singapore",
-      "mentions": 4
+      "mentions": 5
     },
     "US": {
       "country": "United States",
       "mentions": 3
     },
-    "FR": {
-      "country": "France",
-      "mentions": 3
-    },
-    "NL": {
-      "country": "Netherlands",
-      "mentions": 2
-    },
     "UK": {
       "country": "United Kingdom",
       "mentions": 2
+    },
+    "NL": {
+      "country": "Netherlands",
+      "mentions": 1
     },
     "TH": {
       "country": "Thailand",

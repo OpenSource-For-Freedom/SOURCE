@@ -28,10 +28,10 @@
 
 ## Database Statistics
 
-- **Total Malicious IPs**: 212,143
-- **Countries Affected**: 214
-- **Average Threat Severity**: 6.20/10
-- **Last Updated**: 2025-12-18 21:17:40 UTC
+- **Total Malicious IPs**: 230,701
+- **Countries Affected**: 216
+- **Average Threat Severity**: 0.00/5
+- **Last Updated**: 2025-12-19 04:17:39 UTC
 
 ---
 
@@ -74,6 +74,6 @@
 - **[Database.md](docs/DB.md)** - Database design, included files and pipeline
 
 ---
-**Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) |[Hacker News](https://thehackernews.com/) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | [Google Transparency Report](https://transparencyreport.google.com/) | **Last Generated**: 2025-12-18 21:17:40 UTC
+**Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) |[Hacker News](https://thehackernews.com/) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | [Google Transparency Report](https://transparencyreport.google.com/) | **Last Generated**: 2025-12-19 04:17:39 UTC
 </div>
 
