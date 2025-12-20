@@ -73,6 +73,8 @@
 - **[API.md](docs/API.md)** - Database schema and query examples
 - **[Database.md](docs/DB.md)** - Database design, included files and pipeline
 
+
+![batman](assets/IMG_4295.jpeg)
 ---
 **Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) |[Hacker News](https://thehackernews.com/) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | [Google Transparency Report](https://transparencyreport.google.com/) | **Last Generated**: 2025-12-19 04:17:39 UTC
 </div>
