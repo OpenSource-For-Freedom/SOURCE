@@ -45,6 +45,7 @@ jobs:
             | grep -v -E '\s[1-2]$' \
             | awk '{print $1","$2}' \
             > badip_list.csv
+
       - name: Ingest RSS/Atom feeds for additional IPs
         run: |
           python scripts/ingest_feeds.py
@@ -53,6 +54,7 @@ jobs:
         run: |
           python scripts/fetch_blacklists.py
                   host=$(dig @1.1.1.1 +timeout=2 +retry=0 -x "$ip" +short 2>/dev/null | tr -d '\r' | head -n1 || true)
+
       - name: Fetch Hacker News 
         run: |
           python scripts/hacker_news.py
@@ -81,15 +83,20 @@ jobs:
           : > data/resolved_domains.csv
           while read ip; do
             if [ -z "$ip" ]; then continue; fi
-            host=$(dig @1.1.1.1 +timeout=2 +retry=0 -x "$ip" +short 2>/dev/null | tr -d '\r' | head -n1)
-            if [ -z "$host" ]; then host="N/A"; fi
+            # Attempt to resolve the IP; fallback to "N/A" for unresolved
+            host=$(dig @1.1.1.1 +timeout=2 +retry=0 -x "$ip" +short 2>/dev/null | tr -d '\r' | head -n1) || host="N/A"
             echo "$ip,$host" >> data/resolved_domains.csv
           done < data/ips_to_resolve.txt
           echo "Resolved entries (first 10):"
           head -n 10 data/resolved_domains.csv || true
           echo "Total resolved:" && wc -l data/resolved_domains.csv
 
-      - name: Show sample and count
+      - name: Log unresolved IPs
+        run: |
+          grep ",N/A$" data/resolved_domains.csv > unresolved_ips.log || true
+          echo "Unresolved IPs logged:" && wc -l unresolved_ips.log
+
+      - name: Show sample + count
         run: |
           echo "Saved to badip_list.csv"
           head -n 20 badip_list.csv || true
@@ -118,12 +125,12 @@ jobs:
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
           git push origin HEAD:main
 
-      - name: Upload bad IP list artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: badip-database
           path: |
             badip_list.csv
             data/badips.db
-            data/
-
+            data/resolved_domains.csv
+            unresolved_ips.log
