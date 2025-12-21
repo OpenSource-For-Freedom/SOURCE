@@ -469,8 +469,8 @@ def create_cyber_attack_origins_dashboard(stats):
 
         # A2: #1 Attacker callout
         ax2 = fig.add_subplot(gs[0, 1])
-        ax2.text(0.5, 0.7, f"🔴 #1 Attack Origin", ha="center", va="center", 
-                fontsize=16, color="#ff0080", fontweight="bold")
+        ax2.text(0.5, 0.7, "#1 Attack Origin", ha="center", va="center", 
+            fontsize=16, color="#ff0080", fontweight="bold")
         ax2.text(0.5, 0.5, top_country, ha="center", va="center", 
                 fontsize=32, color="#ffff00", fontweight="bold")
         ax2.text(0.5, 0.3, f"{top_country_count:,} Malicious IPs", ha="center", va="center", 
