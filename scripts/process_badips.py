@@ -494,6 +494,10 @@ def get_database_statistics(conn):
     )
     countries = cursor.fetchone()[0]
 
+    # Calculate average severity
+    cursor.execute("SELECT AVG(severity) FROM bad_ips")
+    avg_severity = cursor.fetchone()[0] or 0.0
+
     cursor.execute(
         """
         SELECT country, COUNT(*) as count 
@@ -509,6 +513,7 @@ def get_database_statistics(conn):
     stats = {
         "total_ips": total_ips,
         "countries_affected": countries,
+        "severity_avg": float(avg_severity),
         "update_time": datetime.now().isoformat(),
         "top_countries": [{"country": c[0], "count": c[1]} for c in top_countries],
     }
