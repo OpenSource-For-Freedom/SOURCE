@@ -107,7 +107,7 @@ curl -sS https://raw.githubusercontent.com/OpenSource-For-Freedom/SOURCE/main/ba
 
 
 # Overview
-- This is an "API-KEY-LESS" repo.
+- This is a relational database providing the world what it needs. 
 - Uses open-source data to collect known malicious IPs and geolocate them with Python.
 - Clone this repo to obtain actively updated data to help secure your infrastructure.
 - Source of truth: [Bad IP List](/badip_list.csv) is updated weekly; images and charts are regenerated on the same cadence.
