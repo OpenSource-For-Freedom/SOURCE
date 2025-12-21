@@ -25,7 +25,7 @@ def format_time(iso_str):
 
 
 def build_block(stats):
-    """Build the markdown stats block from a `stats` dict."""
+    """Build the markdown stats block from a `stats` dict as a table."""
     update_time = format_time(
         stats.get("update_time") or stats.get("update_time_iso") or ""
     )
@@ -33,12 +33,15 @@ def build_block(stats):
     countries = stats.get("countries_affected") or stats.get("countries") or 0
     severity = stats.get("severity_avg") or stats.get("average_severity") or 0.0
 
+    # Render as a compact Markdown table
     block = (
         "## Database Statistics\n\n"
-        f"- **Total Malicious IPs**: {int(total):,}\n"
-        f"- **Countries Affected**: {int(countries)}\n"
-        f"- **Average Threat Severity**: {float(severity):.2f}/5\n"
-        f"- **Last Updated**: {update_time}\n\n"
+        "| Metric | Value |\n"
+        "|---|---|\n"
+        f"| Total Malicious IPs | {int(total):,} |\n"
+        f"| Countries Affected | {int(countries)} |\n"
+        f"| Average Threat Severity | {float(severity):.2f}/5 |\n"
+        f"| Last Updated | {update_time} |\n\n"
     )
     return block
 
