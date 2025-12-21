@@ -33,25 +33,25 @@ curl -sS https://raw.githubusercontent.com/OpenSource-For-Freedom/SOURCE/main/ba
 
 | Metric | Value |
 |---|---|
-| Total Malicious IPs | 247,069 |
-| Countries Affected | 217 |
+| Total Malicious IPs | 261,872 |
+| Countries Affected | 219 |
 | Average Threat Severity | 3.00/5 |
-| Last Updated | 2025-12-21 02:09:41 UTC |
+| Last Updated | 2025-12-21 02:41:52 UTC |
 
 ## Top Countries
 
 | Country | IPs |
 |---|---|
-| CN | 48244 |
-| US | 39616 |
-| IN | 12924 |
-| RU | 9768 |
-| NL | 8972 |
-| TH | 7718 |
-| BR | 7550 |
-| DE | 6818 |
-| SG | 5798 |
-| KR | 5491 |
+| CN | 51666 |
+| US | 41012 |
+| IN | 13805 |
+| RU | 10292 |
+| NL | 9398 |
+| TH | 8445 |
+| BR | 7972 |
+| DE | 7254 |
+| SG | 5978 |
+| KR | 5692 |
 
 ---
 
@@ -84,26 +84,26 @@ curl -sS https://raw.githubusercontent.com/OpenSource-For-Freedom/SOURCE/main/ba
 ## Wall of Shame
 | IP | Domain/Host | Severity | Threats |
 |---|---|---|---|
-| 83.219.248.37 | AS41745 | 3/5 | 27 |
-| 179.43.184.242 | AS51852 | 3/5 | 25 |
-| 114.111.54.188 | AS54994 | 3/5 | 25 |
-| 45.148.10.121 | AS48090 | 3/5 | 25 |
-| 80.94.92.182 | AS47890 | 3/5 | 25 |
-| 80.94.92.186 | AS47890 | 3/5 | 25 |
-| 129.45.84.93 | AS327931 | 3/5 | 25 |
-| 143.20.185.79 | AS214209 | 3/5 | 25 |
-| 45.93.168.13 | AS48011 | 3/5 | 25 |
-| 61.245.11.87 | AS19970 | 3/5 | 25 |
-| 62.60.131.157 | AS208137 | 3/5 | 25 |
-| 64.227.97.118 | AS14061 | 3/5 | 25 |
-| 66.132.153.113 | AS398324 | 3/5 | 25 |
-| 66.132.153.115 | AS398324 | 3/5 | 25 |
-| 66.132.153.123 | AS398324 | 3/5 | 25 |
-| 66.132.153.127 | AS398324 | 3/5 | 25 |
-| 66.240.192.138 | AS10439 | 3/5 | 25 |
-| 71.6.165.200 | AS10439 | 3/5 | 25 |
-| 71.6.199.23 | AS10439 | 3/5 | 25 |
-| 80.82.77.33 | AS202425 | 3/5 | 25 |
+| 83.219.248.37 | AS41745 | 3/5 | 28 |
+| 179.43.184.242 | hostedby.privatelayer.com. | 3/5 | 26 |
+| 114.111.54.188 | AS54994 | 3/5 | 26 |
+| 45.148.10.121 | ;; communications error to 127.0.0.53#53: timed out | 3/5 | 26 |
+| 80.94.92.182 | ;; communications error to 127.0.0.53#53: timed out | 3/5 | 26 |
+| 80.94.92.186 | ;; communications error to 127.0.0.53#53: timed out | 3/5 | 26 |
+| 129.45.84.93 | host-93.84.45.129.djezzycloud.dz. | 3/5 | 26 |
+| 143.20.185.79 | ;; communications error to 127.0.0.53#53: timed out | 3/5 | 26 |
+| 45.93.168.13 | 45-93-168-13.digiturunc.com. | 3/5 | 26 |
+| 61.245.11.87 | AS19970 | 3/5 | 26 |
+| 62.60.131.157 | AS208137 | 3/5 | 26 |
+| 64.227.97.118 | AS14061 | 3/5 | 26 |
+| 66.132.153.113 | AS398324 | 3/5 | 26 |
+| 66.132.153.115 | AS398324 | 3/5 | 26 |
+| 66.132.153.123 | AS398324 | 3/5 | 26 |
+| 66.132.153.127 | AS398324 | 3/5 | 26 |
+| 66.240.192.138 | census8.shodan.io. | 3/5 | 26 |
+| 71.6.165.200 | census12.shodan.io. | 3/5 | 26 |
+| 71.6.199.23 | einstein.census.shodan.io. | 3/5 | 26 |
+| 80.82.77.33 | sky.census.shodan.io. | 3/5 | 26 |
 
 
 # Overview
@@ -121,6 +121,6 @@ curl -sS https://raw.githubusercontent.com/OpenSource-For-Freedom/SOURCE/main/ba
 
 ![batman](assets/IMG_4295.jpeg)
 ---
-**Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) |[Hacker News](https://thehackernews.com/) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | [Google Transparency Report](https://transparencyreport.google.com/) | **Last Generated**: 2025-12-21 02:09:41 UTC
+**Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) |[Hacker News](https://thehackernews.com/) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | [Google Transparency Report](https://transparencyreport.google.com/) | **Last Generated**: 2025-12-21 02:41:52 UTC
 </div>
 
