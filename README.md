@@ -23,8 +23,11 @@
 
 <p><strong>Data updated every Sunday at midnight UTC.</strong></p>
 
-
----
+## Resources
+- Curl this to capture the bad ip file
+```
+curl -sS https://raw.githubusercontent.com/opensource-for-freedom/SOURCE/main/badip_list.csv
+```
 
 ## Database Statistics
 
