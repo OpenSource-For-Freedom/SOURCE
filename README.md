@@ -15,7 +15,7 @@
   <img alt="Python 3.14" src="https://img.shields.io/badge/python-3.14-blue?logo=python&logoColor=white" />
 </a>
 <a href="https://hits.dwyl.com/OpenSource-For-Freedom/source">
-  <img alt="Views" src="https://hits.dwyl.com/OpenSource-For-Freedom/source.svg?style=flat-square" />
+  <img alt="clicks" src="https://hits.dwyl.com/OpenSource-For-Freedom/source.svg?style=flat-square" />
 </a>
 </p>
 
