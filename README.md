@@ -30,25 +30,25 @@ curl -sS https://raw.githubusercontent.com/OpenSource-For-Freedom/SOURCE/main/ba
 
 | Metric | Value |
 |---|---|
-| Total Malicious IPs | 261,872 |
+| Total Malicious IPs | 275,891 |
 | Countries Affected | 219 |
 | Average Threat Severity | 3.00/5 |
-| Last Updated | 2025-12-21 20:12:00 UTC |
+| Last Updated | 2025-12-23 01:44:54 UTC |
 
 ## Top Countries
 
 | Country | IPs |
 |---|---|
-| CN | 51666 |
-| US | 41012 |
-| IN | 13805 |
-| RU | 10292 |
-| NL | 9398 |
-| TH | 8445 |
-| BR | 7972 |
-| DE | 7254 |
-| SG | 5978 |
-| KR | 5692 |
+| CN | 54350 |
+| US | 42791 |
+| IN | 14631 |
+| RU | 10685 |
+| NL | 10395 |
+| TH | 9038 |
+| BR | 8426 |
+| DE | 7825 |
+| SG | 6174 |
+| KR | 5860 |
 
 ---
 
@@ -86,26 +86,26 @@ curl -sS https://raw.githubusercontent.com/OpenSource-For-Freedom/SOURCE/main/ba
 ## Wall of Shame
 | IP | Domain/Host | Severity | Threats |
 |---|---|---|---|
-| 83.219.248.37 | AS41745 | 3/5 | 30 |
-| 179.43.184.242 | hostedby.privatelayer.com. | 3/5 | 28 |
-| 114.111.54.188 | AS54994 | 3/5 | 28 |
-| 45.148.10.121 | AS48090 | 3/5 | 28 |
-| 80.94.92.182 | AS47890 | 3/5 | 28 |
-| 80.94.92.186 | AS47890 | 3/5 | 28 |
-| 129.45.84.93 | host-93.84.45.129.djezzycloud.dz. | 3/5 | 28 |
-| 143.20.185.79 | AS214209 | 3/5 | 28 |
-| 45.93.168.13 | 45-93-168-13.digiturunc.com. | 3/5 | 28 |
-| 61.245.11.87 | AS19970 | 3/5 | 28 |
-| 62.60.131.157 | AS208137 | 3/5 | 28 |
-| 64.227.97.118 | AS14061 | 3/5 | 28 |
-| 66.132.153.113 | AS398324 | 3/5 | 28 |
-| 66.132.153.115 | AS398324 | 3/5 | 28 |
-| 66.132.153.123 | AS398324 | 3/5 | 28 |
-| 66.132.153.127 | AS398324 | 3/5 | 28 |
-| 66.240.192.138 | census8.shodan.io. | 3/5 | 28 |
-| 71.6.165.200 | census12.shodan.io. | 3/5 | 28 |
-| 71.6.199.23 | einstein.census.shodan.io. | 3/5 | 28 |
-| 80.82.77.33 | sky.census.shodan.io. | 3/5 | 28 |
+| 83.219.248.37 | AS41745 | 3/5 | 31 |
+| 179.43.184.242 | hostedby.privatelayer.com. | 3/5 | 29 |
+| 114.111.54.188 | AS54994 | 3/5 | 29 |
+| 45.148.10.121 | AS48090 | 3/5 | 29 |
+| 80.94.92.182 | AS47890 | 3/5 | 29 |
+| 80.94.92.186 | AS47890 | 3/5 | 29 |
+| 129.45.84.93 | host-93.84.45.129.djezzycloud.dz. | 3/5 | 29 |
+| 143.20.185.79 | AS214209 | 3/5 | 29 |
+| 45.93.168.13 | 45-93-168-13.digiturunc.com. | 3/5 | 29 |
+| 61.245.11.87 | AS19970 | 3/5 | 29 |
+| 62.60.131.157 | AS208137 | 3/5 | 29 |
+| 64.227.97.118 | AS14061 | 3/5 | 29 |
+| 66.132.153.113 | AS398324 | 3/5 | 29 |
+| 66.132.153.115 | AS398324 | 3/5 | 29 |
+| 66.132.153.123 | AS398324 | 3/5 | 29 |
+| 66.132.153.127 | AS398324 | 3/5 | 29 |
+| 66.240.192.138 | census8.shodan.io. | 3/5 | 29 |
+| 71.6.165.200 | census12.shodan.io. | 3/5 | 29 |
+| 71.6.199.23 | einstein.census.shodan.io. | 3/5 | 29 |
+| 80.82.77.33 | sky.census.shodan.io. | 3/5 | 29 |
 
 
 # Overview
@@ -123,6 +123,6 @@ curl -sS https://raw.githubusercontent.com/OpenSource-For-Freedom/SOURCE/main/ba
 
 ![batman](assets/IMG_4295.jpeg)
 ---
-**Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) |[Hacker News](https://thehackernews.com/) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | [Google Transparency Report](https://transparencyreport.google.com/) | **Last Generated**: 2025-12-21 20:12:00 UTC
+**Data Sources**: [Stamparm/Ipsum](https://github.com/stamparm/ipsum) |[Hacker News](https://thehackernews.com/) | [Google Safe Browsing](https://developers.google.com/safe-browsing) | [Google Transparency Report](https://transparencyreport.google.com/) | **Last Generated**: 2025-12-23 01:44:54 UTC
 </div>
 
