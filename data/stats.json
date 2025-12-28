@@ -1,48 +1,48 @@
 {
-  "total_ips": 288500,
-  "countries_affected": 220,
-  "severity_avg": 2.9958856152513,
-  "update_time": "2025-12-23T22:40:58.990548",
+  "total_ips": 328755,
+  "countries_affected": 221,
+  "severity_avg": 2.996389408526106,
+  "update_time": "2025-12-28T00:44:13.277131",
   "top_countries": [
     {
       "country": "CN",
-      "count": 56917
+      "count": 64616
     },
     {
       "country": "US",
-      "count": 44138
+      "count": 47562
     },
     {
       "country": "IN",
-      "count": 15423
+      "count": 18877
     },
     {
       "country": "NL",
-      "count": 11175
+      "count": 13552
     },
     {
       "country": "RU",
-      "count": 11078
+      "count": 12311
     },
     {
       "country": "TH",
-      "count": 9771
+      "count": 11878
     },
     {
       "country": "BR",
-      "count": 8926
+      "count": 10455
     },
     {
       "country": "DE",
-      "count": 8167
-    },
-    {
-      "country": "SG",
-      "count": 6343
+      "count": 10021
     },
     {
       "country": "TW",
-      "count": 6058
+      "count": 7228
+    },
+    {
+      "country": "KR",
+      "count": 6873
     }
   ]
 }
