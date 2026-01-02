@@ -21,8 +21,6 @@
 **Threat intelligence for network defense.**  
 SOURCE provides regularly updated malicious IP data with geolocation, ASN enrichment, and severity scoring. It's designed for security teams, SOCs, and infrastructure automation.
 
-**Download • Query • Visualize**
-
 ---
 
 ## Quickstart
@@ -62,10 +60,6 @@ print(f"Found {len(high_severity)} high-severity IPs")
 - **Auto-Generated Charts** — Visual dashboards and geographic heatmaps
 - **Weekly Updates** — Data refreshed every Sunday at midnight UTC via GitHub Actions
 
----
-
-## Stats (Latest)
-
 ## Stats (Latest)
 
 | Metric | Value |
@@ -74,8 +68,6 @@ print(f"Found {len(high_severity)} high-severity IPs")
 | **Countries Affected** | 221 |
 | **Average Threat Severity** | 3.00/5 |
 | **Last Updated** | 2025-12-28 00:44:13 UTC |
-
----
 
 ## How It Works
 
@@ -102,9 +94,9 @@ SOURCE collects malicious IPs from trusted threat feeds, removes duplicates, add
 
 ---
 
-## Data Contract (TL;DR)
+## Data
 
-### CSV Schema
+### CSV layout
 
 | Column | Type | Description |
 |---|---|---|
