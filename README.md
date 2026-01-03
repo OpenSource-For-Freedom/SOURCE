@@ -157,8 +157,6 @@ SOURCE collects malicious IPs from trusted threat feeds, removes duplicates, add
 
 ## Top Countries by IP Count
 
-## Top Countries by IP Count
-
 | Country | IPs |
 |---|---|
 | CN | 64,616 |
