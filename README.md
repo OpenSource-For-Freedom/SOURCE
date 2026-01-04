@@ -1,3 +1,29 @@
+## Database Statistics
+
+| Metric | Value |
+|---|---|
+| Total Malicious IPs | 394,847 |
+| Countries Affected | 222 |
+| Average Threat Severity | 3.00/5 |
+| Last Updated | 2026-01-04 00:44:19 UTC |
+
+## Top Countries
+
+| Country | IPs |
+|---|---|
+| CN | 76521 |
+| US | 53737 |
+| IN | 23302 |
+| NL | 17510 |
+| RU | 14899 |
+| TH | 14412 |
+| BR | 13583 |
+| DE | 11721 |
+| TW | 9014 |
+| GB | 8440 |
+
+---
+
 <div align="center">
 <img alt="SOURCE" src="assets/source.PNG" width="800" />
 
@@ -146,14 +172,10 @@ SOURCE collects malicious IPs from trusted threat feeds, removes duplicates, add
 ### Top Countries Distribution
 <img alt="Countries Chart" src="data/charts/countries.png" width="920" />
 
-### Cyber Attack Origins (Hacker News Analysis)
-<img alt="HN Cyber Attack Mentions" src="data/charts/hn_cyberattack_pie.png" width="920" />
+### Cyber Attack Origins
 
-<img alt="Attack Origins" src="data/charts/attack_origins.png" width="920" />
+![Cyber Attack Origins](data/charts/attack_origins.png)
 
-</details>
-
----
 
 ## Top Countries by IP Count
 
@@ -173,102 +195,26 @@ SOURCE collects malicious IPs from trusted threat feeds, removes duplicates, add
 ---
 
 ## Wall of Shame
-
-**Top 10 Most Reported IPs**
-
 | IP | Domain/Host | Severity | Threats |
 |---|---|---|---|
-| 83.219.248.37 | AS41745 | 3/5 | 33 |
-| 179.43.184.242 | hostedby.privatelayer.com. | 3/5 | 31 |
-| 114.111.54.188 | AS54994 | 3/5 | 31 |
-| 45.148.10.121 | AS48090 | 3/5 | 31 |
-| 80.94.92.182 | AS47890 | 3/5 | 31 |
-| 80.94.92.186 | AS47890 | 3/5 | 31 |
-| 129.45.84.93 | host-93.84.45.129.djezzycloud.dz. | 3/5 | 31 |
-| 143.20.185.79 | AS214209 | 3/5 | 31 |
-| 45.93.168.13 | 45-93-168-13.digiturunc.com. | 3/5 | 31 |
-| 61.245.11.87 | AS19970 | 3/5 | 31 |
-
-<details>
-<summary><strong>View Full Wall of Shame</strong></summary>
-
-| IP | Domain/Host | Severity | Threats |
-|---|---|---|---|
-| 62.60.131.157 | AS208137 | 3/5 | 31 |
-| 64.227.97.118 | AS14061 | 3/5 | 31 |
-| 66.132.153.113 | AS398324 | 3/5 | 31 |
-| 66.132.153.115 | AS398324 | 3/5 | 31 |
-| 66.132.153.123 | AS398324 | 3/5 | 31 |
-| 66.132.153.127 | AS398324 | 3/5 | 31 |
-| 66.240.192.138 | census8.shodan.io. | 3/5 | 31 |
-| 71.6.165.200 | census12.shodan.io. | 3/5 | 31 |
-| 71.6.199.23 | einstein.census.shodan.io. | 3/5 | 31 |
-| 80.82.77.33 | sky.census.shodan.io. | 3/5 | 31 |
-
-</details>
-
----
-
-## Safety & False Positives
-
-**Warning: Do not auto-block without validation.**
-
-This dataset combines IPs from multiple threat intelligence sources. While we aim for accuracy, the list may include:
-
-- **Legitimate security scanners** (e.g., Shodan, Censys, research crawlers)
-- **Shared hosting IPs** where one tenant was compromised
-- **Dynamic IPs** that may have been reassigned to non-malicious users
-
-### Recommended Practices
-
-- **Use allowlists** for known-good IPs (internal networks, CDN providers, monitoring services)
-- **Stage enforcement** — Monitor and log first, block later after validation
-- **Implement severity thresholds** — Start blocking only at severity 4 or higher
-- **Review threat_count** — Higher counts indicate persistent hostility
-- **Monitor false positives** — Set up alerting for blocked legitimate traffic
-- **Combine with other signals** — Use alongside rate limiting, WAF rules, and behavioral analysis
-
-> **Production Tip:** Test in a staging environment before enforcing blocks in production. See [deployment best practices](docs/OVERVIEW.md) for more guidance.
-
----
-
-## Documentation
-
-- **[Overview](docs/OVERVIEW.md)** — Deployment strategies, use cases, and best practices
-- **[Database Schema](docs/DB.md)** — Pipeline architecture and database design
-- **[API Reference](docs/API.md)** — Query examples and integration patterns
-- **[Contributing](CONTRIBUTING.md)** — How to run locally and submit improvements
-- **[Security Policy](SECURITY.md)** — Vulnerability reporting and disclosure
-
----
-
-## Data Sources
-
-SOURCE aggregates threat intelligence from trusted open-source feeds:
-
-- [Stamparm/Ipsum](https://github.com/stamparm/ipsum)
-- [Hacker News Security Reports](https://thehackernews.com/)
-- [EmergingThreats Block IPs](https://rules.emergingthreats.net/)
-- [Spamhaus DROP/EDROP](https://www.spamhaus.org/drop/)
-- [Abuse.ch RansomTracker](https://ransomwaretracker.abuse.ch/)
-- [Zeus Tracker](https://zeustracker.abuse.ch/)
-
----
-
-## License
-
-This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
-
----
-
-<div align="center">
-
-**Last Generated:** 2025-12-28 00:44:13 UTC  
-**Update Cadence:** Weekly (Sundays @ 00:00 UTC)
-
-Made by the [OpenSource-For-Freedom](https://github.com/OpenSource-For-Freedom) community
-
-![batman](assets/IMG_4295.jpeg)
-
-</div>
+| 83.219.248.37 | AS41745 | 3/5 | 34 |
+| 179.43.184.242 | hostedby.privatelayer.com. | 3/5 | 32 |
+| 114.111.54.188 | AS54994 | 3/5 | 32 |
+| 45.148.10.121 | AS48090 | 3/5 | 32 |
+| 80.94.92.182 | AS47890 | 3/5 | 32 |
+| 80.94.92.186 | AS47890 | 3/5 | 32 |
+| 129.45.84.93 | host-93.84.45.129.djezzycloud.dz. | 3/5 | 32 |
+| 143.20.185.79 | AS214209 | 3/5 | 32 |
+| 45.93.168.13 | AS48011 | 3/5 | 32 |
+| 61.245.11.87 | AS19970 | 3/5 | 32 |
+| 62.60.131.157 | AS208137 | 3/5 | 32 |
+| 64.227.97.118 | AS14061 | 3/5 | 32 |
+| 66.132.153.113 | AS398324 | 3/5 | 32 |
+| 66.132.153.115 | AS398324 | 3/5 | 32 |
+| 66.132.153.123 | AS398324 | 3/5 | 32 |
+| 66.132.153.127 | AS398324 | 3/5 | 32 |
+| 66.240.192.138 | census8.shodan.io. | 3/5 | 32 |
+| 71.6.165.200 | census12.shodan.io. | 3/5 | 32 |
+| 71.6.199.23 | einstein.census.shodan.io. | 3/5 | 32 |
+| 80.82.77.33 | sky.census.shodan.io. | 3/5 | 32 |
 
